@@ -1,7 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeMap;
 
 public class Main {
@@ -14,9 +14,6 @@ public class Main {
 		 * mapSymptomsForCounter is map for manage data
 		 */
 		String fileSymptoms = "C:\\Users\\maxim\\eclipse-workspace\\symptoms.txt";
-		ArrayList<String> lineSymptoms;
-		lineSymptoms = new ArrayList<String>();
-		TreeMap<String, Integer> mapSymptomsForCounter = new TreeMap<>();
 
 		try {
 			/*
@@ -24,28 +21,27 @@ public class Main {
 			 * see readSymptomDataFromFile class
 			 */
 			readSymptomDataFromFile Read = new readSymptomDataFromFile();
-			Read.printSymptoms(fileSymptoms, lineSymptoms);
+			List<String> listSymptoms = Read.printSymptoms(fileSymptoms);
 
 			/*
 			 * STEP_02 Use Map for explode line to exploit lines
 			 */
-			ArrayList<String> lineForNextClassOne = lineSymptoms;
 			analyticsCounter mapSymptoms = new analyticsCounter();
-			mapSymptomsForCounter = mapSymptoms.BigMap(lineForNextClassOne);
+			TreeMap<String, Integer> mapSymptomsForCounter = mapSymptoms.BigMap(listSymptoms);
 
 			/*
 			 * STEP_03 it's a class to exploit information from map
 			 */
-			TreeMap<String, Integer> lineForNextClasstwo = mapSymptomsForCounter;
+			
 			analyticsCounter analyticsCounters = new analyticsCounter();
-			analyticsCounters.counter(lineForNextClasstwo);
+			analyticsCounters.counter(mapSymptomsForCounter);
 
 		} catch (IndexOutOfBoundsException e) {
 			System.err.println("Caught IndexOutOfBoundsException: " + e.getMessage());
 		}
 
 		finally {
-			System.out.println("Stop PrintWriter");
+			System.out.println("Traitement terminé.");
 		}
 
 	}

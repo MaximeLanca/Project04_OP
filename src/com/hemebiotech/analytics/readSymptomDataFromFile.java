@@ -8,15 +8,17 @@ import java.util.List;
 
 public class readSymptomDataFromFile {
 
-	public ArrayList<String> printSymptoms(String file, ArrayList<String> listSymptoms) {
+	public List<String> printSymptoms(String file) {
 
+		List<String> listSymptoms = new ArrayList<String>();
+		
 		/*
 		 * Loop for read data file and put data in list listSymptoms with the class
 		 * BufferedReader
 		 */
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
-
+			
 			String line;
 			while ((line = reader.readLine()) != null) {
 				listSymptoms.add(line);

@@ -4,13 +4,13 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class analyticsCounter {
 
-	public TreeMap<String, Integer> BigMap(ArrayList<String> Symptoms) {
+	public TreeMap<String, Integer> BigMap(List<String> Symptoms) {
 
 		TreeMap<String, Integer> mapForSymptoms = new TreeMap<String, Integer>();
 		/*
@@ -56,7 +56,7 @@ public class analyticsCounter {
 		String newLigne=System.getProperty("line.separator");
 		
 		for (Map.Entry<String, Integer> entry : lineForNextClasstwo.entrySet()) {
-			writer.write("Symptoms:" + entry.getKey() + "." + " Occurences:" + entry.getValue() + newLigne);
+			writer.write(entry.getKey() + "=" + entry.getValue() + newLigne);
 		}
 		writer.close();
 	}
