@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class readSymptomDataFromFile {
+public class ReadSymptomDataFromFileImpl {
 
 	public List<String> printSymptoms(String file) {
 

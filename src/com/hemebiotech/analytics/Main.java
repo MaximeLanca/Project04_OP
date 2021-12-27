@@ -20,20 +20,20 @@ public class Main {
 			 * STEP_01 Class for to read file symptoms.txt
 			 * see readSymptomDataFromFile class
 			 */
-			readSymptomDataFromFile Read = new readSymptomDataFromFile();
-			List<String> listSymptoms = Read.printSymptoms(fileSymptoms);
+			ReadSymptomDataFromFileImpl read = new ReadSymptomDataFromFileImpl();
+			List<String> listSymptoms = read.printSymptoms(fileSymptoms);
 
 			/*
 			 * STEP_02 Use Map for explode line to exploit lines
 			 */
-			analyticsCounter mapSymptoms = new analyticsCounter();
-			TreeMap<String, Integer> mapSymptomsForCounter = mapSymptoms.BigMap(listSymptoms);
+			AnalyticsCounterImpl mapSymptoms = new AnalyticsCounterImpl();
+			TreeMap<String, Integer> mapSymptomsForCounter = mapSymptoms.bigMap(listSymptoms);
 
 			/*
 			 * STEP_03 it's a class to exploit information from map
 			 */
 			
-			analyticsCounter analyticsCounters = new analyticsCounter();
+			AnalyticsCounterImpl analyticsCounters = new AnalyticsCounterImpl();
 			analyticsCounters.counter(mapSymptomsForCounter);
 
 		} catch (IndexOutOfBoundsException e) {

@@ -8,31 +8,31 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class analyticsCounter {
+public class AnalyticsCounterImpl implements AnalyticCounter {
 
-	public TreeMap<String, Integer> BigMap(List<String> Symptoms) {
+	public TreeMap<String, Integer> bigMap(List<String> symptoms) {
 
 		TreeMap<String, Integer> mapForSymptoms = new TreeMap<String, Integer>();
 		/*
 		 * use loop to put symptoms in stringFirst StringSymptoms 
 		 */
-		for (String FirstStringSymptoms : Symptoms) {
+		for (String firstStringSymptoms : symptoms) {
 			
 		/*
 		 * to avoid having null data in the treemap, we use condition with "if" which makes
 		 * it possible to establish this condition.
 		 * if the condition is valid, this will increment variable value and put symptom in the treemap.
 		 */
-			if (mapForSymptoms.get(FirstStringSymptoms) != null) {
-				Integer value = mapForSymptoms.get(FirstStringSymptoms);
+			if (mapForSymptoms.get(firstStringSymptoms) != null) {
+				Integer value = mapForSymptoms.get(firstStringSymptoms);
 				value++;
-				mapForSymptoms.put(FirstStringSymptoms, value);
+				mapForSymptoms.put(firstStringSymptoms, value);
 				
 		/*
 		 * if the condition is'nt valid, variable "value" take value of 1
 		 */
 			} else {
-				mapForSymptoms.put(FirstStringSymptoms, 1);
+				mapForSymptoms.put(firstStringSymptoms, 1);
 			}
 		}
 		return mapForSymptoms;
