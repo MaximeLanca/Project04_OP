@@ -41,7 +41,7 @@ public class Main {
 		}
 
 		finally {
-			System.out.println("Traitement terminé.");
+			System.out.println("processing completed.");
 		}
 
 	}

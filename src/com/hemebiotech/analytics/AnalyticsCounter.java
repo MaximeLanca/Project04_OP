@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.TreeMap;
 
-public interface AnalyticCounter {
+public interface AnalyticsCounter {
 
 	public TreeMap<String, Integer> bigMap(List<String> symptoms);
 	
