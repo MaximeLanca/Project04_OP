@@ -2,12 +2,14 @@ package com.hemebiotech.analytics;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.TreeMap;
 
+/**
+ * @autor maxime lanca
+ */
 public interface AnalyticsCounter {
-
-	public TreeMap<String, Integer> bigMap(List<String> symptoms);
-	
-	public void counter(TreeMap<String, Integer> lineForNextClasstwo) throws IOException ;
-	
+	/**
+	 *
+	 * @param symptoms refer to list of symptoms
+	 */
+	public void toSortSymptoms(List<String> symptoms) throws IOException;
 }

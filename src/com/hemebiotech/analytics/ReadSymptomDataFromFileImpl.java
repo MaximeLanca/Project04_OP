@@ -6,22 +6,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @autor maxime lanca
+ */
 public class ReadSymptomDataFromFileImpl {
+	/**
+	 *
+	 * @param file refer to the file "symptoms.txt"
+	 * @return listOfSymptoms is the list of symptoms comes from the file symptoms.txt
+	 */
+	public List<String> toReadFile(String file) {
 
-	public List<String> printSymptoms(String file) {
+		List<String> listOfSymptoms = new ArrayList<String>();
 
-		List<String> listSymptoms = new ArrayList<String>();
-		
-		/*
-		 * Loop for read data file and put data in list listSymptoms with the class
-		 * BufferedReader
-		 */
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			
 			String line;
 			while ((line = reader.readLine()) != null) {
-				listSymptoms.add(line);
+				listOfSymptoms.add(line);
 			}
 			reader.close();
 
@@ -29,6 +32,6 @@ public class ReadSymptomDataFromFileImpl {
 			System.out.println("An error occured.");
 			e.printStackTrace();
 		}
-		return listSymptoms;
+		return listOfSymptoms;
 	}
 }

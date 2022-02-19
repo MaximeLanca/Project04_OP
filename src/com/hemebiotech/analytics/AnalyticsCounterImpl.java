@@ -8,54 +8,37 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class AnalyticsCounterImpl implements AnalyticCounter {
+/**
+ * maxime lanca
+ */
+public class AnalyticsCounterImpl implements AnalyticsCounter {
+	/**
+	 *
+	 * @param symptoms refers to list of symptoms
+	 */
+	public void toSortSymptoms(List<String> symptoms) throws IOException {
 
-	public TreeMap<String, Integer> bigMap(List<String> symptoms) {
+		TreeMap<String, Integer> treemapForSymptoms = new TreeMap<String, Integer>();
 
-		TreeMap<String, Integer> mapForSymptoms = new TreeMap<String, Integer>();
-		/*
-		 * use loop to put symptoms in stringFirst StringSymptoms 
-		 */
 		for (String firstStringSymptoms : symptoms) {
-			
-		/*
-		 * to avoid having null data in the treemap, we use condition with "if" which makes
-		 * it possible to establish this condition.
-		 * if the condition is valid, this will increment variable value and put symptom in the treemap.
-		 */
-			if (mapForSymptoms.get(firstStringSymptoms) != null) {
-				Integer value = mapForSymptoms.get(firstStringSymptoms);
+
+			if (treemapForSymptoms.get(firstStringSymptoms) != null) {
+				Integer value = treemapForSymptoms.get(firstStringSymptoms);
 				value++;
-				mapForSymptoms.put(firstStringSymptoms, value);
-				
-		/*
-		 * if the condition is'nt valid, variable "value" take value of 1
-		 */
+				treemapForSymptoms.put(firstStringSymptoms, value);
+
 			} else {
-				mapForSymptoms.put(firstStringSymptoms, 1);
+				treemapForSymptoms.put(firstStringSymptoms, 1);
 			}
 		}
-		return mapForSymptoms;
-	}
 
-	public void counter(TreeMap<String, Integer> lineForNextClasstwo) throws IOException {
+		File file = new File("./results.out.txt");
 
-		/*
-		 * Create new file "result.out"
-		 */
-		File file = new File("C:\\Users\\maxim\\eclipse-workspace\\results.out.txt");
-		
-		/*
-		 * Write symptoms in the file with BufferedWriter class
-		 */
 		BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-		
-		/*
-		 * use line separator with string "newLine"
-		 */
+
 		String newLigne=System.getProperty("line.separator");
 		
-		for (Map.Entry<String, Integer> entry : lineForNextClasstwo.entrySet()) {
+		for (Map.Entry<String, Integer> entry : treemapForSymptoms.entrySet()) {
 			writer.write(entry.getKey() + "=" + entry.getValue() + newLigne);
 		}
 		writer.close();

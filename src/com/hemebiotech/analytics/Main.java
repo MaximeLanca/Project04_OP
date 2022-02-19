@@ -4,45 +4,28 @@ import java.io.IOException;
 import java.util.List;
 import java.util.TreeMap;
 
+/**
+ * @autor maxime lanca
+ */
 public class Main {
 
 	public static void main(String[] args) throws IOException {
 
-		/**
-		 * String fileSymptoms is variable for import data file symptom
-		 * LineSymptoms is a list for save "symptoms.txt"'s line
-		 * mapSymptomsForCounter is map for manage data
-		 */
-		String fileSymptoms = "C:\\Users\\maxim\\eclipse-workspace\\symptoms.txt";
+		String fileOfSymptoms = "./symptoms.txt";
 
 		try {
-			/*
-			 * STEP_01 Class for to read file symptoms.txt
-			 * see readSymptomDataFromFile class
-			 */
+
 			ReadSymptomDataFromFileImpl read = new ReadSymptomDataFromFileImpl();
-			List<String> listSymptoms = read.printSymptoms(fileSymptoms);
+			List<String> listSymptoms = read.toReadFile(fileOfSymptoms);
 
-			/*
-			 * STEP_02 Use Map for explode line to exploit lines
-			 */
-			AnalyticsCounterImpl mapSymptoms = new AnalyticsCounterImpl();
-			TreeMap<String, Integer> mapSymptomsForCounter = mapSymptoms.bigMap(listSymptoms);
-
-			/*
-			 * STEP_03 it's a class to exploit information from map
-			 */
-			
-			AnalyticsCounterImpl analyticsCounters = new AnalyticsCounterImpl();
-			analyticsCounters.counter(mapSymptomsForCounter);
+			AnalyticsCounterImpl treemapForToSort = new AnalyticsCounterImpl();
+			treemapForToSort.toSortSymptoms(listSymptoms);
 
 		} catch (IndexOutOfBoundsException e) {
 			System.err.println("Caught IndexOutOfBoundsException: " + e.getMessage());
 		}
-
 		finally {
 			System.out.println("processing completed.");
 		}
-
 	}
 }
