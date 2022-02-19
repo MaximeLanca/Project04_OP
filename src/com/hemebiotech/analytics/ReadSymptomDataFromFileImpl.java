@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @autor maxime lanca
  */
-public class ReadSymptomDataFromFileImpl {
+public class ReadSymptomDataFromFileImpl implements ReadSymptomDataFromFile{
 	/**
 	 *
 	 * @param file refer to the file "symptoms.txt"

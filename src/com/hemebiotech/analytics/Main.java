@@ -2,7 +2,6 @@ package com.hemebiotech.analytics;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.TreeMap;
 
 /**
  * @autor maxime lanca
@@ -15,10 +14,10 @@ public class Main {
 
 		try {
 
-			ReadSymptomDataFromFileImpl read = new ReadSymptomDataFromFileImpl();
+			ReadSymptomDataFromFile read = new ReadSymptomDataFromFileImpl();
 			List<String> listSymptoms = read.toReadFile(fileOfSymptoms);
 
-			AnalyticsCounterImpl treemapForToSort = new AnalyticsCounterImpl();
+			AnalyticsCounter treemapForToSort = new AnalyticsCounterImpl();
 			treemapForToSort.toSortSymptoms(listSymptoms);
 
 		} catch (IndexOutOfBoundsException e) {
