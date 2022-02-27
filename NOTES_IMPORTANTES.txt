@@ -1,0 +1,4 @@
+//NOTE IMPORTANTE//
+
+Le fichier fichier result.out.txt se créer à la racine du projet (chemin relatif).
+En fonction du l'IDE, le fichier result.out appararaitra directement dans l'arborescence de l'interface utilisateur.

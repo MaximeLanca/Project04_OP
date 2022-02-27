@@ -11,27 +11,24 @@ import java.util.List;
  */
 public class ReadSymptomDataFromFileImpl implements ReadSymptomDataFromFile{
 	/**
-	 *
+	 * Instantiate a new list for treatment of symptoms
 	 * @param file refer to the file "symptoms.txt"
-	 * @return listOfSymptoms is the list of symptoms comes from the file symptoms.txt
+	 * @return the list of symptoms comes from the file symptoms.txt
+	 * @throws IOException if file does not exist
 	 */
-	public List<String> toReadFile(String file) {
+	public List<String> toReadFile(String file) throws IOException {
 
 		List<String> listOfSymptoms = new ArrayList<String>();
 
-		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			
 			String line;
 			while ((line = reader.readLine()) != null) {
 				listOfSymptoms.add(line);
 			}
+
 			reader.close();
 
-		} catch (IOException e) {
-			System.out.println("An error occured.");
-			e.printStackTrace();
-		}
 		return listOfSymptoms;
 	}
 }

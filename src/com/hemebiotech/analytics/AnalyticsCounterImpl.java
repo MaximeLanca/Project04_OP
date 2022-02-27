@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -9,12 +10,15 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * maxime lanca
+ * @autor maxime lanca
  */
 public class AnalyticsCounterImpl implements AnalyticsCounter {
 	/**
-	 *
+	 *Instantiate a new list. It's uses a treemap for to sort data from to list of symptoms.
+	 *Then, it's creates file "results.out" who will be saved in the root of the project
+	 * Also, open windows with the result of the program.
 	 * @param symptoms refers to list of symptoms
+	 * @throws IOException if the file exist (result.out)
 	 */
 	public void toSortSymptoms(List<String> symptoms) throws IOException {
 
@@ -42,5 +46,9 @@ public class AnalyticsCounterImpl implements AnalyticsCounter {
 			writer.write(entry.getKey() + "=" + entry.getValue() + newLigne);
 		}
 		writer.close();
+
+		Desktop openFile = Desktop.getDesktop();
+		if(file.exists())
+			openFile.open(file);
 	}
 }
